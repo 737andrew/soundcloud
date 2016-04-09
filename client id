@@ -1,0 +1,14 @@
+Client ID  e18f93a6aaaf77192fa6f6180f294feb
+"user_id":108077404
+Client Secret		efe9e968ef24099c4fb8450acc8e582d
+
+http://api.soundcloud.com/resolve?url=https://soundcloud.com/droboshok/01a&client_id=e18f93a6aaaf77192fa6f6180f294feb
+
+http://api.soundcloud.com/users/108077404/playlists?client_id=e18f93a6aaaf77192fa6f6180f294feb
+
+http://api.soundcloud.com/playlists/2252403?client_id=e18f93a6aaaf77192fa6f6180f294feb
+
+
+
+
+{"kind":"track","id":258174980,"created_at":"2016/04/09 19:20:35 +0000","user_id":108077404,"duration":284420,"commentable":true,"state":"finished","original_content_size":4550672,"last_modified":"2016/04/09 19:20:35 +0000","sharing":"public","tag_list":"","permalink":"01a","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"","title":"01","description":"","label_name":null,"release":null,"track_type":null,"key_signature":null,"isrc":null,"video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/258174980","user":{"id":108077404,"kind":"user","permalink":"droboshok","username":"Droboshok","last_modified":"2016/04/09 19:11:51 +0000","uri":"https://api.soundcloud.com/users/108077404","permalink_url":"http://soundcloud.com/droboshok","avatar_url":"https://i1.sndcdn.com/avatars-000215065934-nfmzaf-large.jpg"},"permalink_url":"http://soundcloud.com/droboshok/01a","artwork_url":null,"waveform_url":"https://w1.sndcdn.com/q2IFdRW6zcFZ_m.png","stream_url":"https://api.soundcloud.com/tracks/258174980/stream","playback_count":0,"download_count":0,"favoritings_count":0,"comment_count":0,"attachments_uri":"https://api.soundcloud.com/tracks/258174980/attachments"}

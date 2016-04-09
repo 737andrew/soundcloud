@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+<script src="jquery.js"></script>
+
+</head>
+<body>
+
+      <audio src="" id="audio1" controls="controls" >
+        Your browser does not support the HTML5 Audio Tag.
+        
+      </audio>
+      <ul id="playlist">
+        
+      </ul>
+      <ul id="dorid">
+        
+      </ul>
+
+<script>
+$.ajax({
+  url: 'http://api.soundcloud.com/playlists/211262530',
+  type: 'GET',
+  dataType: 'json',
+  success: function(data) {
+  console.log('hi');
+  }
+});
+
+  list=['01.mp3','02_moroccan_soul.mp3','03_rhythms_of_the_deep.mp3','04.mp3','05.mp3'];
+  $.each(list,function(i){
+    $('#playlist').append('<li><a href="'+list[i]+'">'+list[i]+'</li>');
+  });
+ audioPlayer();
+ function audioPlayer () {
+    $('#audio1')[0].src=$('#playlist li a')[0];
+    // $('#audio1')[0].play();
+    $('#playlist li a').click(function(e){
+      e.preventDefault();
+    $('#audio1')[0].src=this;
+    // $('#audio1')[0].play();
+
+    });
+ }
+
+  // $('#audio1').html('<source src="01.mp3">').play();
+</script>
+
+
+
+</body>
+</html>
