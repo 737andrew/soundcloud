@@ -11,15 +11,15 @@
 
 <script>
 SC.initialize({
-  client_id: 'YOUR_CLIENT_ID',
-  redirect_uri: 'http://example.com/callback'
+  client_id: 'e18f93a6aaaf77192fa6f6180f294feb',
+  redirect_uri: 'http://737andrew.github.io/soundcloud/callback.html'
 });
 
 // initiate auth popup
 SC.connect().then(function() {
   return SC.get('/me');
 }).then(function(me) {
-  alert('Hello, ' + me.username);
+  alert('Hello, ' + me);
 });
 </script>
 </body>
