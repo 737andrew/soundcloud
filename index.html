@@ -12,43 +12,71 @@
         Your browser does not support the HTML5 Audio Tag.
         
       </audio>
+      <p id="name"></p>
       <ul id="playlist">
         
       </ul>
-      <ul id="dorid">
+      <ul id="droid">
         
       </ul>
 
 <script>
 $.ajax({
-  url: 'http://api.soundcloud.com/playlists/211262530',
+  url: 'http://api.soundcloud.com/playlists/211262530?client_id=e18f93a6aaaf77192fa6f6180f294feb',
   type: 'GET',
   dataType: 'json',
-  success: function(data) {
-  console.log('hi');
+  success: function(data) { 
+    var arr=data.tracks;
+    $.each(arr,function(e) {
+      var link = arr[e].permalink_url;
+      var id = arr[e].id;
+      var title = arr[e].permalink;
+      // console.log(arr[e]);
+      pageUrl(link,id,title);
+  //     $(data.tracks).each(function (i) {
+  //       // body...
+  // console.log(i);
+  //     });
+    });
   }
 });
-
-  list=['01.mp3','02_moroccan_soul.mp3','03_rhythms_of_the_deep.mp3','04.mp3','05.mp3'];
-  $.each(list,function(i){
-    $('#playlist').append('<li><a href="'+list[i]+'">'+list[i]+'</li>');
+// https://cf-media.sndcdn.com/2sWqNsulftmD.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vMnNXcU5zdWxmdG1ELjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0NjAyNzcwNzJ9fX1dfQ__&Signature=bCEcj4egVRpBKLNCteD7LMfSUrnM6IKGAuCNKyv0Eg8y20rzwqPY7yqc2pHI4fSnSLj~CpQThjDRyfNOXsQzUkeO0Gz-1~QBAOCBHYWbTWA24pJ4VvyeeEUu8a-E9hWYjzTs08k0oNLgUbh1Rzzit4FTz5pZx3X1r-McYBk6UsYFFT2kPIYwMDcceyFWcnPMz94Qc~C~Buf0oMV2PP9im8qLQC8FdQcfyOqWgKWgnKx4aqBPoA-vRCKhXcMLohewDRT1FNPwCbvgbMuM9J6-R02EXJl5loBaLiKQf0fjbAcgMwo5A~qL9TAws-5PQwyMJhSMUr2yKC71cQncwoOCpg__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ
+// https://api.soundcloud.com/tracks/219195013/streams?client_id=e18f93a6aaaf77192fa6f6180f294feb
+function pageUrl (link,id,title) {
+  var murl = 'https://api.soundcloud.com/tracks/'+id+'/streams?client_id=e18f93a6aaaf77192fa6f6180f294feb';
+  $.getJSON(murl,function(data){
+    // console.log(data.http_mp3_128_url);
+    // console.log(data.http_mp3_128_url);
+    $('#droid').append('<li><a href="'+data.http_mp3_128_url+'">'+title+'</li>');
+     audioPlayer();
   });
+  // body...
+}
+// var murl = 'https://api.soundcloud.com/tracks?client_id=e18f93a6aaaf77192fa6f6180f294feb';
+// $.getJSON(murl, function(tracks) {
+//   $(tracks).each(function(track) {
+//     console.log(track.title);
+//   });
+// });
+  // list=['01.mp3','02_moroccan_soul.mp3','03_rhythms_of_the_deep.mp3','04.mp3','05.mp3'];
+  // $.each(list,function(i){
+  //   $('#playlist').append('<li><a href="'+list[i]+'">'+list[i]+'</li>');
+  // });
  audioPlayer();
  function audioPlayer () {
-    $('#audio1')[0].src=$('#playlist li a')[0];
-    // $('#audio1')[0].play();
-    $('#playlist li a').click(function(e){
+    $('#audio1')[0].src=$('#droid li a')[0];
+    $('#audio1')[0].play();
+    $('#droid li a').click(function(e){
       e.preventDefault();
     $('#audio1')[0].src=this;
-    // $('#audio1')[0].play();
-
+    $('#audio1')[0].play();
+    $('#name').text($(this).text())
+    // console.log($(this).text());
     });
  }
 
   // $('#audio1').html('<source src="01.mp3">').play();
 </script>
-
-
 
 </body>
 </html>
