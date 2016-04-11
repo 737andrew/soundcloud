@@ -9,18 +9,6 @@
 	
 
 
-<script>
-SC.initialize({
-  client_id: 'e18f93a6aaaf77192fa6f6180f294feb',
-  redirect_uri: 'http://737andrew.github.io/soundcloud/callback.html'
-});
 
-// initiate auth popup
-SC.connect().then(function() {
-  return SC.get('/me');
-}).then(function(me) {
-  console.log(me.username);
-});
-</script>
 </body>
 </html>
